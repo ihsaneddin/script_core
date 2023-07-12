@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <sstream>
 #include <iostream>
+#include <stdint.h>
 
 class options {
 public:

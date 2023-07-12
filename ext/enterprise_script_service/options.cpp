@@ -7,11 +7,13 @@
 #include <stdexcept>
 #include "options.hpp"
 #include "units.hpp"
+#include <stdint.h>
+#include <cstdint>
 
 static const std::uint64_t DEFAULT_INSTRUCTION_QUOTA = 100000;
 static const std::uint64_t MIN_INSTRUCTION_QUOTA = 6000;
 static const std::size_t DEFAULT_MEMORY_QUOTA = 8 * MiB;
- 
+
 void options::read_from(int argc, char **argv, std::ostream &output) {
   int opt;
   while ((opt = getopt(argc, argv, "i:C:m:")) != -1) {
@@ -40,7 +42,7 @@ void options::read_from(int argc, char **argv, std::ostream &output) {
 
   optind = 1; // In case we call getopt multiple times like in testing
 
-  // Note; Getopt will output parameter errors to stderr. 
+  // Note; Getopt will output parameter errors to stderr.
   std::flush(output);
 }
 
